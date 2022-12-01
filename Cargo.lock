@@ -2533,6 +2533,7 @@ name = "snarkos-node"
 version = "2.0.2"
 dependencies = [
  "aleo-std",
+ "ansi_term",
  "anyhow",
  "async-trait",
  "colored",
