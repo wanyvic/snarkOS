@@ -1,0 +1,26 @@
+version: "3.5"
+
+services:
+  client:
+    container_name: snarkos-client
+    image: wanyvic:snarkOS-gpu 
+    volumes:
+      - snarkos-client-vol:/aleo/data
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      #environment:
+            # RUST_LOG: "info"
+    restart: unless-stopped
+    command:
+      - /aleo/bin/snarkos
+      - start
+      - --nodisplay
+      - --prover={PRIVKET}
+      - --verbosity=0
+    ports:
+      - 3033:3033
+      - 4133:4133
+
+volumes:
+  snarkos-client-vol:
